@@ -36,7 +36,7 @@ object LongestPalindrome {
   def manacher(s: String): String = {
     val s_new = s.toCharArray.mkString("#", "#", "#")
     val range = for (_ <- 0 until s_new.length) yield {
-      0
+      1
     }
     val Len = scala.collection.mutable.ArrayBuffer[Int](range: _*)
     var sub_midd = 0
