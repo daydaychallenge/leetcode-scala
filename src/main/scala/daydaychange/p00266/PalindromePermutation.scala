@@ -19,6 +19,6 @@ object PalindromePermutation {
   }
 
   def test2(str: String): Boolean = {
-    str.toCharArray.groupBy(_ -> 1).count(_._2.length % 2 != 0) + (str.length+1)%2 <2
+    str.toCharArray.groupBy(_ -> 1).count(_._2.length % 2 != 0)  <2
   }
 }

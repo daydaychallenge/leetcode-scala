@@ -10,6 +10,7 @@ class PalindromePermutationUnit extends Specification {
 
     PalindromePermutation.test2("code") mustEqual false
     PalindromePermutation.test2("aab") mustEqual true
+    PalindromePermutation.test2("aab") mustEqual true
     PalindromePermutation.test2("carerac") mustEqual true
   }
 }
