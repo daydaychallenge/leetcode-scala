@@ -2,6 +2,7 @@ package daydaychange.p00043
 
 object MultiplyStrings {
   def multiply(num1: String, num2: String): String = {
+    if (num1 == "0" || num2 == "0") return ""
     val v1 = num1.map(_.toString.toInt)
     val v2 = num2.map(_.toString.toInt)
     val result = scala.collection.mutable.ArraySeq((0 until num1.length + num2.length).map(_ => 0): _*)
@@ -15,11 +16,6 @@ object MultiplyStrings {
       result(result.length - i) = result(result.length - i) % 10
     }
     val str = result.mkString("")
-    val index = str.indexWhere(_ != '0')
-    if (index == -1) {
-      "0"
-    } else {
-      str.substring(index)
-    }
+    str.substring(str.indexWhere(_ != '0'))
   }
 }
