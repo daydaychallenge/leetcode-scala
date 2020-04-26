@@ -28,18 +28,22 @@ object AddTwoNumbers {
   }
 
   def addTwoNumbers2(l1: ListNode, l2: ListNode): ListNode = {
-    addTwoNumbersFP(Some(l1), Some(l2), 0).get
+    val result = ListNode(0)
+    addTwoNumbersFP(result, Some(l1), Some(l2))
+    result
   }
 
-  def addTwoNumbersFP(l1: Option[ListNode], l2: Option[ListNode], carry: Int): Option[ListNode] = {
-    val result = l1.map(_.x).getOrElse(0) + l2.map(_.x).getOrElse(0) + carry
-    if (l1.isDefined || l2.isDefined) {
-      Some(ListNode(result % 10, addTwoNumbersFP(
+  @tailrec
+  def addTwoNumbersFP(node: ListNode, l1: Option[ListNode], l2: Option[ListNode]): Unit = {
+    val sum = l1.map(_.x).getOrElse(0) + l2.map(_.x).getOrElse(0) + node.x
+    node.x = sum % 10
+    if (l1.isDefined || l2.isDefined || sum >= 10) {
+      node.next = Some(ListNode(sum / 10))
+      addTwoNumbersFP(
+        node.next.get,
         l1.flatMap(_.next),
-        l2.flatMap(_.next), result / 10)
-      ))
-    } else {
-      None
+        l2.flatMap(_.next)
+      )
     }
   }
 }
