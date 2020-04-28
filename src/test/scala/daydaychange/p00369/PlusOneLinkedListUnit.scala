@@ -3,7 +3,7 @@ package daydaychange.p00369
 import org.specs2.mutable.Specification
 
 class PlusOneLinkedListUnit extends Specification {
-  "LongestPalindrome" should {
+  "PlusOneLinkedListUnit" should {
     val node1 = new ListNode(1)
     val node2 = new ListNode(2)
     node1.next = node2
