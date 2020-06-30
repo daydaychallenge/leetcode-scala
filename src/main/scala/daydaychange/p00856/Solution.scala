@@ -1,4 +1,4 @@
-package daydaychange.p0856
+package daydaychange.p00856
 
 object Solution {
   def scoreOfParentheses(S: String): Int = {
